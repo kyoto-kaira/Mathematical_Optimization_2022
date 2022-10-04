@@ -176,7 +176,7 @@ def internal_point_method(f, gs, l, x0, s0, u0, rho0, delta=0.1, eta=0.1, rho_th
         x = x + alpha * dx
         u = u + alpha * du
         s = s + alpha * ds
-        rho = delta * u.T @ s / l   # ρの更新(p141, 式3.195)
+        rho = delta * u[:l].T @ s / l   # ρの更新(p141, 式3.195)
 
         print(alpha, rho, dx.reshape(-1), ds.reshape(-1), du.reshape(-1))
         history.append( (x,u) )
